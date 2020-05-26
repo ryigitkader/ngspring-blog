@@ -1,5 +1,6 @@
 package com.dewlooper.springngblog.controller;
 
+import com.dewlooper.springngblog.dto.LoginRequest;
 import com.dewlooper.springngblog.dto.RegisterRequest;
 import com.dewlooper.springngblog.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,10 @@ public class AuthController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    @PostMapping("/login")
+    public String login(@RequestBody LoginRequest loginRequest){
+
+        return authService.login(loginRequest);
+    }
 
 }
