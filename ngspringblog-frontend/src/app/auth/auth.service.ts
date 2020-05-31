@@ -14,6 +14,6 @@ export class AuthService {
 
 
   register(registerPayload:RegisterPayload):Observable<any>{
-    return this.httpClient.post(this.url + "signup",registerPayload);
+    return this.httpClient.post(this.url + "/api/auth/signup",registerPayload);
   }
 }
