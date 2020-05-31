@@ -1,0 +1,26 @@
+<div class="container justify-content-center">
+    <form class="sign-in" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <h1 class="h1 mb-3 font-weight-normal">Please Register</h1>
+        <div class="form-group">
+            <label for="inputUsername" class="sr-only">Username</label>
+            <input type="text" id="inputUsername" [formControlName] = "'username'" class="form-control" placeholder="username" required="" autofocus="">
+
+        </div>
+        <div class="form-group">
+            <label for="inputEmail" class="sr-only">Email</label>
+            <input type="text" id="inputEmail" [formControlName] = "'email'" class="form-control" placeholder="email" required="" autofocus="">
+        </div>
+
+        <div class="form-group">
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" [formControlName] = "'password'" class="form-control" placeholder="password" required="">
+        </div>
+        <div class="form-group">
+            <label for="inputConfirmPassword" class="sr-only">Password</label>
+            <input type="password" id="inputConfirmPassword" [formControlName] = "'confirmPassword'" class="form-control" placeholder="Confirm password"
+                required="">
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+
+    </form>
+</div>
