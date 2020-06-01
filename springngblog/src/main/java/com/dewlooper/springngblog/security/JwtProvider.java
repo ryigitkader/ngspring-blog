@@ -35,17 +35,36 @@ public class JwtProvider {
 
 
     public boolean validateToken(String jwt){
+        /*
+        ** Old version
         Jwts.parser().setSigningKey(key).parseClaimsJws(jwt);
+        */
+
+
+        Jwts.parserBuilder().build().parseClaimsJws(jwt);
         return true;
     }
 
     public String getUserNameFromJWT(String token) {
 
+
+        Claims claims = Jwts.parserBuilder()
+                .setSigningKey(key)
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
+        return claims.getSubject();
+
+
+        /*
+        ** Old version
         Claims claims = Jwts.parser()
                         .setSigningKey(key)
                         .parseClaimsJws(token)
                         .getBody();
 
-        return claims.getSubject();
+        **/
+
+
     }
 }
