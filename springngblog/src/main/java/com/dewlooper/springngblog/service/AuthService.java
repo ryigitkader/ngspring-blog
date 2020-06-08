@@ -48,7 +48,7 @@ public class AuthService {
         return passwordEncoder.encode(password);
     }
 
-    public AuthenticationResponse login(LoginRequest loginRequest) throws SpringBlogException {
+    public AuthenticationResponse login(LoginRequest loginRequest)  {
 
         Authentication authenticate = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
