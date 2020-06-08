@@ -2,6 +2,7 @@ package com.dewlooper.springngblog.service;
 
 import com.dewlooper.springngblog.dto.LoginRequest;
 import com.dewlooper.springngblog.dto.RegisterRequest;
+import com.dewlooper.springngblog.exception.SpringBlogException;
 import com.dewlooper.springngblog.model.User;
 import com.dewlooper.springngblog.repository.IUserRepository;
 import com.dewlooper.springngblog.security.JwtProvider;
@@ -47,7 +48,7 @@ public class AuthService {
         return passwordEncoder.encode(password);
     }
 
-    public AuthenticationResponse login(LoginRequest loginRequest) {
+    public AuthenticationResponse login(LoginRequest loginRequest) throws SpringBlogException {
 
         Authentication authenticate = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
