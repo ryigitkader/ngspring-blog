@@ -10,11 +10,12 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterSuccesComponent } from './auth/register-succes/register-succes.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {NgxWebstorageModule} from 'ngx-webstorage';
 import { HomeComponent } from './home/home.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { from } from 'rxjs';
+import { HttpClientInterceptor } from './http-client-interceptor';
 
 
 @NgModule({
@@ -46,7 +47,7 @@ import { from } from 'rxjs';
     
   ],
 
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:HttpClientInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
