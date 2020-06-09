@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { LoginPayload } from '../login-payload';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   loginForm:FormGroup;
   loginPayload:LoginPayload;
 
-  constructor(private authService:AuthService ) { 
+  constructor(private authService:AuthService, private router:Router ) { 
 
     this.loginForm = new FormGroup({
       username: new FormControl(),
@@ -37,9 +38,10 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.loginPayload).subscribe(data => {
       if(data){
-        console.log("Login Succesfull");
+        //console.log("Login Succesfull");
+        this.router.navigateByUrl('/home');
       }else{
-        console.log("Login failed");
+        //console.log("Login failed");
       }
       
     })

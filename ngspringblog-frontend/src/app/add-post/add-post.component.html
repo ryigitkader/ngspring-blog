@@ -1,0 +1,21 @@
+<div class="add-post-content">
+    <div class="container">
+        <div>
+            <h3 class="new-post-title">Create a new post..</h3>
+        </div>
+        <hr>
+        <form>
+            <div class="form-group">
+                <label class="post-title">Post Title</label>
+                <input type="text" class="form-control" placeholder="title">
+            </div>
+            <div class="form-group">
+                <label class="post-content">Content</label>
+                <editor [init]="{plugins:'link'}"></editor>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary " type="submit">Post</button>
+            </div>
+        </form>
+    </div>
+</div>
