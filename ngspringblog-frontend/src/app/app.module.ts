@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { from } from 'rxjs';
 import { HttpClientInterceptor } from './http-client-interceptor';
+import { PostComponent } from './post/post.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { HttpClientInterceptor } from './http-client-interceptor';
     LoginComponent,
     RegisterSuccesComponent,
     HomeComponent,
-    AddPostComponent
+    AddPostComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,9 @@ import { HttpClientInterceptor } from './http-client-interceptor';
     ReactiveFormsModule,
     NgxWebstorageModule.forRoot(),
     RouterModule.forRoot([
+      {path : '', component:HomeComponent},
       {path : 'register', component:RegisterComponent},
+      {path : 'post/:id', component:PostComponent},
       {path:'login' ,component:LoginComponent},
       {path:'register-success' ,component:RegisterSuccesComponent},
       {path:'home' ,component:HomeComponent},

@@ -1,1 +1,19 @@
-<p>home works!</p>
+<div class="content">
+    <div class="container">
+        <hr>
+        <div class="row" *ngFor = "let post of posts | async">
+            <div>
+                <h3><a href="/post/{{post.id}}" class="blog-title">{{post.title}}</a></h3>
+                <div>
+                    <i class="fas fa-user"></i> Author : <b>{{post.userName}}</b><br><br>
+                </div>
+                <p [innerHTML]="post.content"></p>
+                <div>
+                    <a type="button" href="/post/{{post.id}}" class="read-more btn btn-primary">Read More..</a>
+                </div>
+                <hr>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
