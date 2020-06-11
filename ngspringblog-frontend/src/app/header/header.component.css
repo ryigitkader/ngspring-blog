@@ -18,10 +18,14 @@
     color: aliceblue;
     padding-top: 10px;
     
+    
 }
 
 .new-post{
-    float: right;
+    float: left;
     color:aliceblue;
     padding-top: 10px;
+    padding-right: 5%;
+    
 }
+

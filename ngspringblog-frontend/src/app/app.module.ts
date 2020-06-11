@@ -17,6 +17,7 @@ import { AddPostComponent } from './add-post/add-post.component';
 import { from } from 'rxjs';
 import { HttpClientInterceptor } from './http-client-interceptor';
 import { PostComponent } from './post/post.component';
+import { AuthGuard } from './auth.guard';
 
 
 @NgModule({
@@ -43,7 +44,7 @@ import { PostComponent } from './post/post.component';
       {path:'login' ,component:LoginComponent},
       {path:'register-success' ,component:RegisterSuccesComponent},
       {path:'home' ,component:HomeComponent},
-      {path:'add-post' ,component:AddPostComponent}
+      {path:'add-post' ,component:AddPostComponent, canActivate:[AuthGuard]}
 
     ]),
     HttpClientModule,

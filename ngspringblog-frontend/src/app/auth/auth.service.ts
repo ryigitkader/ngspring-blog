@@ -39,4 +39,9 @@ export class AuthService {
     return this.localStorageService.retrieve('userName') != null;
   }
 
+  logOut(){
+    this.localStorageService.clear('authenticationToken');
+    this.localStorageService.clear('userName');
+  }
+
 }
