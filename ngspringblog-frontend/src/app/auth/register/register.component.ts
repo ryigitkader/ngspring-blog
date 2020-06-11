@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
+  passwordMessage:string=""; 
   registerForm:FormGroup;
   registerPayload : RegisterPayload;
   
@@ -55,16 +56,25 @@ export class RegisterComponent implements OnInit {
     this.registerPayload.confirmPassword = this.registerForm.get('confirmPassword').value;
 
 
-    this.authService.register(this.registerPayload).subscribe(data => {
+    if(this.registerPayload.password == this.registerPayload.confirmPassword){
 
-      console.log("register success");
+      this.authService.register(this.registerPayload).subscribe(data => {
 
-      this.router.navigateByUrl('/register-success');
+        console.log("register success");
+        this.router.navigateByUrl('/register-success');
+  
+      },error => {
+        console.log("register fail");
+      });
+
       
+    }else{
+      //alert("Passwords not same!");
+      this.passwordMessage = "Passwords not same"
+    }
 
-    },error => {
-      console.log("register fail");
-    });
+
+
 
   }
 

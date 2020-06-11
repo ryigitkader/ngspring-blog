@@ -20,6 +20,9 @@
             <input type="password" id="inputConfirmPassword" [formControlName] = "'confirmPassword'" class="form-control" placeholder="Confirm password"
                 required="">
         </div>
+        <div class="" *ngIf="passwordMessage!=''">
+            <p class="alert alert-danger" for="">{{passwordMessage}}</p>
+        </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
 
     </form>
