@@ -66,8 +66,6 @@ export class RegisterComponent implements OnInit {
       },error => {
         console.log("register fail");
       });
-
-      
     }else{
       //alert("Passwords not same!");
       this.passwordMessage = "Passwords not same"
